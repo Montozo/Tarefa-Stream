@@ -37,8 +37,10 @@ public class Empresa {
             .collect(Collectors.toList()));
         }
         top30Funcionarios.addAll(funcionariosTemp);
-        top30Funcionarios.sort((f1 , f2) -> Double.compare(f2.getSalario(), f1.getSalario()));
-        top30Funcionarios = top30Funcionarios.stream().limit(30).collect(Collectors.toList());
+        top30Funcionarios = top30Funcionarios.stream()
+        .sorted((f1 , f2) -> Double.compare(f2.getSalario(), f1.getSalario()))
+        .limit(30)
+        .collect(Collectors.toList());
         return top30Funcionarios;
     }
 }
